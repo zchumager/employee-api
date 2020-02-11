@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "ecde7a20-3136-4e6b-ba26-cdd1bfc99378",
+		"name": "employee-api-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe4e65f3-50d5-489c-b1e9-ad6022bc5fb6",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    ",
+							"    pm.environment.set(\"EMPLOYEE_ID\", jsonData.id);",
+							"    pm.environment.set(\"EMPLOYEE_FIRST_NAME\", jsonData.first_name);",
+							"    pm.environment.set(\"EMPLOYEE_STATUS\", jsonData.status);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Pedro\",\n\t\"middle_initial\": \"A\",\n\t\"last_name\": \"Machado Duran\",\n\t\"date_of_birth\": \"1987-11-07\",\n\t\"date_of_employment\": \"2019-05-04\",\n\t\"status\": \"ACTIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c9e2164-e11a-4efa-8ba3-1aa18c5ae04e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Employee by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "256f130a-1e39-4d32-868e-91b901d8ad23",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/id/{{EMPLOYEE_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"id",
+						"{{EMPLOYEE_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Employees by Lastname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "acef0b37-74a7-4025-9231-9b22b4cac38f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/firstName/{{EMPLOYEE_FIRST_NAME}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"firstName",
+						"{{EMPLOYEE_FIRST_NAME}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Employees by Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c5ff32a9-cd48-4ada-b209-e5947d16a57b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/status/{{EMPLOYEE_STATUS}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"status",
+						"{{EMPLOYEE_STATUS}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify User by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8aaa3bb5-f327-4ce9-ac4c-dd10bb080e84",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"Pedro\",\n\t\"middle_initial\": \"A\",\n\t\"last_name\": \"Machado Duran\",\n\t\"date_of_birth\": \"1987-11-06\",\n\t\"date_of_employment\": \"2019-05-04\",\n\t\"status\": \"ACTIVE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/id/{{EMPLOYEE_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"id",
+						"{{EMPLOYEE_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50adc7af-daf3-474c-9aa1-36191047ba0c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/employees/id/{{EMPLOYEE_ID}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees",
+						"id",
+						"{{EMPLOYEE_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

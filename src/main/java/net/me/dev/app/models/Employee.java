@@ -19,26 +19,26 @@ public class Employee {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "FIRST_NAME", nullable = false)
     @JsonProperty(value = "first_name")
     private String firstName;
 
-    @Column(name = "middle_initial")
+    @Column(name = "MIDDLE_INITIAL")
     @JsonProperty(value = "middle_initial")
     private String middleInitial;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "LAST_NAME", nullable = false)
     @JsonProperty(value = "last_name")
     private String lastName;
 
-    @Column(name = "date_of_birth", nullable = false)
+    @Column(name = "DATE_OF_BIRTH", nullable = false)
     @JsonProperty(value = "date_of_birth")
     private Date dateOfBirth;
 
-    @Column(name = "date_of_employment", nullable = false)
+    @Column(name = "DATE_OF_EMPLOYMENT", nullable = false)
     @JsonProperty(value = "date_of_employment")
     private Date dateOfEmployment;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "STATUS", nullable = false)
     private Status status;
 }
