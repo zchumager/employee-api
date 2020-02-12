@@ -22,6 +22,10 @@ import java.util.List;
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
 
+    public EmployeeController(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
     @Autowired
     private EmployeeRepository repository;
 
